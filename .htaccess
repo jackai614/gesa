@@ -1,2 +1,5 @@
 IndexOptions Charset=UTF-8
 AddDefaultCharset UTF-8
+RewriteEngine On
+RewriteCond %{HTTPS} on # 检测是否是HTTPS连接
+RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
