@@ -586,7 +586,7 @@
         }
         if (getUrlParam('id')) {
             let id = Number(getUrlParam('id'));
-            let isUpdateData = 3;//更新study数据时改变此数值
+            let isUpdateData = 4;//更新study数据时改变此数值
             const loadingOverlay = document.getElementById('loadingOverlay');
             if (localStorage.getItem('study') && localStorage.getItem('isUpdateData') && localStorage.getItem('isUpdateData') == isUpdateData) {
                 let study = JSON.parse(localStorage.getItem('study'));
