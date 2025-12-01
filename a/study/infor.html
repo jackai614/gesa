@@ -513,7 +513,7 @@
 
                 if (srcMatch && srcMatch[1]) {
                     // 如果有src属性，构造指定的onerror值
-                    onerrorValue = `this.src='http://www.nhxgsxh.com/imageProxy.php?url=${encodeURIComponent(srcMatch[1])}'`;
+                    onerrorValue = `this.src='/images/study_images/${encodeURIComponent(srcMatch[1]).split('/')[encodeURIComponent(srcMatch[1]).split('/').length-1]}'`;
                 }
 
                 // 检查是否已经有onerror属性
