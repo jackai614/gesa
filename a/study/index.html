@@ -995,10 +995,17 @@
             atStr = ``;
             allData.forEach((item) => {
                 let keyword = item.keyword || '';
+                let imgsrc = '';
+                if (extractImageSrcs(item.content) && extractImageSrcs(item.content).length) {
+                    imgsrc = extractImageSrcs(item.content)[0].split('/');
+                    imgsrc = imgsrc[imgsrc.length - 1];
+                    imgsrc = `/images/study_images/${imgsrc}`
+                }
+
                 atStr = atStr + `<article class="article-card" itemscope itemtype="1">
                 <div class="article-image">
-                <img class="lazy-image" width="300" height="200" itemprop="image" src="${extractImageSrcs(item.content)[0]}" alt="${item.title}"
-                onerror="this.src = '${extractImageSrcs(item.content).length ? 'http://www.nhxgsxh.top/imageProxy.php?url=' + extractImageSrcs(item.content)[0] : 'https://img0.baidu.com/it/u=637550358,3618406664&fm=253&fmt=auto&app=120&f=JPEG'}'" />
+                <img class="lazy-image" width="300" height="200" itemprop="image" src="${imgsrc}" alt="${item.title}"
+                onerror="this.src = '${extractImageSrcs(item.content).length ? imgsrc : 'https://img0.baidu.com/it/u=637550358,3618406664&fm=253&fmt=auto&app=120&f=JPEG'}'" />
                 
                 <span class="article-category">
                     ${keyword.includes('虫') || keyword.includes('防治') ? '病虫害防治' : keyword.includes('水肥') ? '水肥管理' : keyword.includes('修剪') ? '修剪整形' : keyword.includes('栽培') || keyword.includes('管理') ? '栽培技术' : '其他'}</span>
