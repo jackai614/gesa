@@ -512,8 +512,10 @@
                 let onerrorValue = "this.style.display='none'"; // 默认值
 
                 if (srcMatch && srcMatch[1]) {
+                    let src = srcMatch[1].split('/')
+                    src = src[src.length-1]
                     // 如果有src属性，构造指定的onerror值
-                    onerrorValue = `this.src='http://www.nhxgsxh.com/imageProxy.php?url=${encodeURIComponent(srcMatch[1])}'`;
+                    onerrorValue = `this.src='/images/study_images/${src}'`;
                 }
 
                 // 检查是否已经有onerror属性
